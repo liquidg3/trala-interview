@@ -1,13 +1,42 @@
 import React from 'react';
+import ContactDialog from './ContactDialog';
+import ContactList from './ContactList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        Coming soon
-      </header>
-    </div>
-  );
+
+
+export default class App extends React.PureComponent<AppProps, AppState> {
+  public state = {
+    shouldShowAddDialog: false
+  }
+
+  private handleClickCloseAddDialog() {
+    this.setShouldAddDialog(false);
+  }
+
+  private handleClickAddPerson() {
+    this.setShouldAddDialog(true);
+  }
+
+  private setShouldAddDialog(shouldShow: boolean) {
+    this.setState({ shouldShowAddDialog: shouldShow });
+  }
+
+  public render() {
+
+    const { shouldShowAddDialog } = this.state
+    return (
+      <div className="App">
+        <ContactList onClickAdd={this.handleClickAddPerson.bind(this)} />
+        {shouldShowAddDialog && <ContactDialog onClickClose={this.handleClickCloseAddDialog.bind(this)} />}
+      </div>
+    );
+  }
 }
 
-export default App;
+interface AppProps {
+
+}
+
+interface AppState {
+  shouldShowAddDialog: boolean;
+}
