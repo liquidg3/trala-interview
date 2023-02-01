@@ -9,50 +9,5 @@
 			"restart": true,
 			"timeout": 10000
 		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "test.file",
-			"runtimeExecutable": "node",
-			"runtimeArgs": [
-				"--inspect-brk",
-				"--trace-warnings",
-				"${workspaceFolder}/node_modules/.bin/jest",
-				"${fileBasenameNoExtension}",
-				"--detectOpenHandles"
-			],
-			"cwd": "${workspaceFolder}",
-			"console": "integratedTerminal",
-			"internalConsoleOptions": "neverOpen"
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "test.all",
-			"runtimeExecutable": "node",
-			"runtimeArgs": [
-				"--inspect-brk",
-				"--trace-warnings",
-				"${workspaceFolder}/node_modules/.bin/jest"
-			],
-			"cwd": "${workspaceFolder}",
-			"console": "integratedTerminal",
-			"internalConsoleOptions": "neverOpen"
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "boot",
-			"runtimeExecutable": "yarn",
-			"runtimeArgs": [
-				"run",
-				"--inspect-brk",
-				"--trace-warnings",
-				"boot"
-			],
-			"cwd": "${workspaceFolder}",
-			"console": "integratedTerminal",
-			"internalConsoleOptions": "neverOpen"
-		}
 	]
 }
