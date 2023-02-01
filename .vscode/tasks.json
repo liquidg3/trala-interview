@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "start",
+            "group": "build",
+            "label": "start",
+            "isBackground": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "promptOnClose": false,
+            "presentation": {
+                "focus": false,
+                "reveal": "never"
+            },
+            "problemMatcher": {
+                "base": "$tsc-watch",
+                "applyTo": "allDocuments"
+            }
+        },
+        {
+            "label": "test",
+            "command": "yarn",
+            "args": [
+                "test",
+            ],
+            "promptOnClose": false,
+            "group": "test",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "panel": "shared",
+                "focus": true,
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "shell",
+            "type": "shell",
+            "command": "${input:command} ${input:optionsCommand}",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "new",
+                "clear": false
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "command",
+            "description": "command",
+            "default": "yarn",
+            "type": "promptString"
+        },
+        {
+            "id": "optionsCommand",
+            "description": "optionsCommand",
+            "default": "add",
+            "type": "promptString"
+        }
+    ]
+}
